@@ -21,6 +21,10 @@ def get_dct_matrix(N):
             if k == 0:
                 w = np.sqrt(1 / N)
             dct_m[k, i] = w * np.cos(np.pi * (i + 1 / 2) * k / N)
+
+    """Unable DCT hook"""
+    # dct_m = np.eye(N)
+
     idct_m = np.linalg.inv(dct_m)
     return dct_m, idct_m
 
@@ -53,6 +57,7 @@ def regress_pred(model, pbar, num_samples, joint_used_xyz, m_p3d_h36):
                 else:
                     motion_input_ = motion_input.clone()
                 output = model(motion_input_)
+                # output = output[:,-1]
                 output = torch.matmul(idct_m[:, :config.motion.h36m_input_length, :], output)[:, :step, :]
                 if config.deriv_output:
                     output = output + motion_input[:, -1:, :].repeat(1,step,1)

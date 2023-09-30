@@ -15,7 +15,7 @@ C = edict()
 config = C
 cfg = C
 
-C.seed = 304
+C.seed = 888
 
 """please config ROOT_dir and user when u first using"""
 C.abs_dir = osp.dirname(osp.realpath(__file__))
@@ -92,9 +92,9 @@ C.motion_fc_out.temporal_fc = False
 C.batch_size = 256
 C.num_workers = 8
 
-C.cos_lr_max=1e-5
-C.cos_lr_min=5e-8
-C.cos_lr_total_iters=40000
+C.cos_lr_max=3e-4
+C.cos_lr_min=1e-5
+C.cos_lr_total_iters=100000
 
 C.weight_decay = 1e-4
 C.model_pth = None
@@ -104,7 +104,13 @@ C.shift_step = 1
 
 """Display Config"""
 C.print_every = 100
-C.save_every = 5000
+C.save_every = 1250
+
+C.wavelet = "haar"
+
+C.wavelet_size = [9, 33, 17, 9]
+
+C.dropout = 0.
 
 
 if __name__ == '__main__':

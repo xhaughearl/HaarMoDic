@@ -5,11 +5,17 @@ The 3D human pose is vital for modern computer vision and computer graphics, and
 ### Network Architecture
 ------
 ![overview](imgs/overv.jpg)
-An overview of the architecture of HaarMoDic.  **FC** denotes for full-connected layer, and **T** denotes for transpose operation. **DCT** and **IDCT** denote discrete cosine transform and the inverse operation. The detailed explanation of the **MR-Haar Block** is in section MR-Haar_block in the paper. To get better performances, $m$ MR-Haar blocks are concatenated in the network.
+
+**An overview of the architecture of HaarMoDic.**
+
+ **FC** denotes for full-connected layer, and **T** denotes for transpose operation. **DCT** and **IDCT** denote discrete cosine transform and the inverse operation. The detailed explanation of the **MR-Haar Block** is in section MR-Haar_block in the paper. To get better performances, $m$ MR-Haar blocks are concatenated in the network.
 ### Inner structure of MR-Haar Block
 ------
 ![MR_Haar](imgs/MR_Haar.jpg)
-**Illustration of MR-Haar Block.** This figure illustrates one kind of MR-Haar block containing three orders of Haar transform, and the number of the full-connected layers for each order are 4, 2, 1. **FC** denotes the full-connected layer, and **LN** denotes for layer normalization. All the spectrums in different orders are merged together at the second from the last stage. The residual pathway is not included.
+
+**Illustration of MR-Haar Block.** 
+
+This figure illustrates one kind of MR-Haar block containing three orders of Haar transform, and the number of the full-connected layers for each order are 4, 2, 1. **FC** denotes the full-connected layer, and **LN** denotes for layer normalization. All the spectrums in different orders are merged together at the second from the last stage. The residual pathway is not included.
 ### Requirements
 
 #### Install Pytorch_wavelet
